@@ -40,9 +40,10 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="work_locations">Work Locations <span class="badge-black">?</span></label>
+                            <label for="work_locations">Work Locations <span class="badge badge-primary" title="Available STO : {{ implode (", ", config('resu.sto')) }}">?</span></label>
                             <input type="text" id="work_locations" class="form-control" name="work_locations" value="{{ old('work_locations') }}">
-                            <span class="small text-muted">Seperate with commas (,). Ex: PDA,GEM</span>
+                            <p class="small text-muted mb-0">Seperate with commas (,). Ex: PDA,GEM</p>
+                            <p class="small text-muted">Available STO : {{ implode (", ", config('resu.sto')) }}</p>
                             @if ($errors->has('work_locations'))
                                 <span class="small text-danger" role="alert"><strong>{{ $errors->first('work_locations') }}</strong></span>
                             @endif
