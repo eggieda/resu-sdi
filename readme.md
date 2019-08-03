@@ -51,7 +51,9 @@ From here, the application must run smoothly on your local machine.
 
 ## Deployment
 
-This is guide to deploy the application to server using cPanel. We will using Git Version Control feature so we can update our app to match with our repository. So make sure there is Git Version Control feature on your cPanel.
+This is guide to deploy the application to server using cPanel. We will using Git Version Control feature so make sure there is Git Version Control feature on your cPanel.
+
+> Using Git Version Control feature on cPanel will help a lot on the deployment or event on the development process. As we can make an update more easily by doing the pull and deploy action.
 
 ### Clone, Pull and Deploy
 
