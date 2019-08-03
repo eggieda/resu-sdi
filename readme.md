@@ -53,6 +53,8 @@ From here, the application must run smoothly on your local machine.
 
 This is guide to deploy the application to server using cPanel. We will using Git Version Control feature so we can update our app to match with our repository. So make sure there is Git Version Control feature on your cPanel.
 
+### Clone, Pull and Deploy
+
 1. Go to cPanel
 2. Click `Git Version Control` on `Files` section
    
@@ -80,3 +82,90 @@ This is guide to deploy the application to server using cPanel. We will using Gi
 10. After finish updating or pulling, click `Deploy HEAD Commit` to deploy your repository to cPanel so it can be access from your domain.
     
     ![Git Version Control Pull or Deploy](public/documentation/git-version-control-pull-deploy.png)
+
+11. Once you have done deploying, you will see the detail of latest deployment on right side of the panel
+
+### Change Project Permission
+
+1. Go to cPanel Dashboard and click `Filemanager`
+2. Make sure you are in `public_html`. You will see your repository folder with permission `0700`
+   
+   ![Filemanager public_html](public/documentation/filemanager-public-html.png)
+
+3. Change the permission to `0755` by clicking on the permission column
+   
+   ![Filemanager Change Permission](public/documentation/filemanager-public-html-change-permission.png)
+
+4. This will allow web browser to access this folder and execute the application
+
+### Prepare Database
+
+1. Go to cPanel Dashboard and click MySQL Database
+2. Create new Database with name `sdi_resu`
+
+    ![MySQL Create Database](public/documentation/mysql-database-create.png)
+
+3. Add new user with name `sdi_resu` and password `rahasia123`
+   
+    ![MySQL Add User](public/documentation/mysql-database-create-user.png)
+
+4. Add user `sdi_resu` to database `sdi_resu` ang grant `ALL PRIVILEGES`
+
+    ![MySQL Add User to Database](public/documentation/mysql-database-add-user-to-db.png)
+
+5. Open phpMyAdmin by go to cPanel Dashboard and click phpMyAdmin
+
+    ![phpMyAdmin](public/documentation/phpmyadmin.png)
+
+6. Select database with name `proq7992_sdi_resu`
+
+    ![phpMyAdmin Select Database](public/documentation/phpmyadmin-database.png)
+
+7. Open Import tab
+
+    ![phpMyAdmin Import Database](public/documentation/phpmyadmin-database-import.png)
+
+8. Download [this file](resu-sdi.sql) and import it to phpMyAdmin
+
+    ![phpMyAdmin Import Database RESU-SDI](public/documentation/phpmyadmin-database-import-resu-sdi.png)
+
+9.  Click `Go`
+    
+    ![phpMyAdmin Import Database Success](public/documentation/phpmyadmin-database-import-success.png)
+
+### Set Up Project Environment
+
+1. Go to cPanel Dashboard and click `Filemanager`
+2. Open `resu-sdi` folder
+3. Copy `.env.example` with name `.env`
+4. Edit `.env` file to match with server envinroment.
+
+    ```
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=proq7992_sdi_resu
+    DB_USERNAME=proq7992_sdi_resu
+    DB_PASSWORD=rahasia123
+    ```
+5. Save file
+
+### Make Subdomain
+
+1. Go to cPanel Dashboard and click `Subdomains` in Domain section
+2. Click `Create New Domain`
+   
+   ![Subdomains](public/documentation/subdomains.png)
+
+3. Fill the form to create a new subdomain. Make sure to fill the Document Root to `public` folder on your application.
+   
+   ![Subdomains](public/documentation/subdomains-create.png)
+
+4. Click `Create` and wait the process until you see a success message.
+5. From here you can access your project with your subdomain. http://resu.projectsdi.com
+6. Default Admin Credential
+   
+   ```
+   email : admin@admin.com
+   password : Admin123!
+   ```
