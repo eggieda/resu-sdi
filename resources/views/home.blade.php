@@ -5,11 +5,11 @@
         <div class="col">
             <div class="jumbotron bg-white">
                 <h3>Welcome, {{ auth()->user()->name }}</h3>
-                <p>This application is intended to facilitate the survey process in the field for customers who are constrained by internet networks efficiently.</p>
+                <p>Aplikasi ini ditujukan untuk memfasilitasi proses survey pelanggan terkendala internet secara efisien.</p>
                 <hr class="my-4">
-                <p>This application can only be used by teams from the SDI division (Survey Data Inventory).</p>
+                <p>Aplikasi ini hanya dapat digunakan oleh tim dari divisi SDI (Survey Data Inventory).</p>
                 <p>
-                    <a class="btn btn-fill btn-danger btn-md" href="{{ route('work-order.index') }}" role="button">See Work Orders</a>
+                    <a class="btn btn-fill btn-danger btn-md" href="{{ route('work-order.index') }}" role="button">Lihat Work Orders</a>
                 </p>
             </div>
         </div>
