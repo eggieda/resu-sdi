@@ -12,10 +12,10 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="uid">NIK</label>
-                            <input type="text" id="uid" class="form-control" name="uid" value="{{ $admin->uid }}">
-                            @if ($errors->has('uid'))
-                                <span class="small text-danger" role="alert"><strong>{{ $errors->first('uid') }}</strong></span>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" name="email" value="{{ $admin->email }}">
+                            @if ($errors->has('email'))
+                                <span class="small text-danger" role="alert"><strong>{{ $errors->first('email') }}</strong></span>
                             @endif
                         </div>
                         <div class="form-group">
@@ -26,10 +26,10 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" name="email" value="{{ $admin->email }}">
-                            @if ($errors->has('email'))
-                                <span class="small text-danger" role="alert"><strong>{{ $errors->first('email') }}</strong></span>
+                            <label for="uid">NIK</label>
+                            <input type="text" id="uid" class="form-control" name="uid" value="{{ $admin->uid }}">
+                            @if ($errors->has('uid'))
+                                <span class="small text-danger" role="alert"><strong>{{ $errors->first('uid') }}</strong></span>
                             @endif
                         </div>
                         <div class="form-group">

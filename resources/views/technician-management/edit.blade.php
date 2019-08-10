@@ -19,10 +19,10 @@
                             </ul>
                         @endif
                         <div class="form-group">
-                            <label for="uid">NIK</label>
-                            <input type="text" id="uid" class="form-control" name="uid" value="{{ $technician->uid }}">
-                            @if ($errors->has('uid'))
-                                <span class="small text-danger" role="alert"><strong>{{ $errors->first('uid') }}</strong></span>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" name="email" value="{{ $technician->email }}">
+                            @if ($errors->has('email'))
+                                <span class="small text-danger" role="alert"><strong>{{ $errors->first('email') }}</strong></span>
                             @endif
                         </div>
                         <div class="form-group">
@@ -33,12 +33,12 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" name="email" value="{{ $technician->email }}">
-                            @if ($errors->has('email'))
-                                <span class="small text-danger" role="alert"><strong>{{ $errors->first('email') }}</strong></span>
+                            <label for="uid">NIK</label>
+                            <input type="text" id="uid" class="form-control" name="uid" value="{{ $technician->uid }}">
+                            @if ($errors->has('uid'))
+                                <span class="small text-danger" role="alert"><strong>{{ $errors->first('uid') }}</strong></span>
                             @endif
-                        </div>
+                        </div>                        
                         <div class="form-group">
                             <label for="phone_number">Phone Number</label>
                             <input type="text" id="phone_number" class="form-control" name="phone_number" value="{{ $technician->phone_number }}">
