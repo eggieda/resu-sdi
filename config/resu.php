@@ -23,4 +23,9 @@ return [
         "BGES",
         "STARCLICK",
     ],
+
+    /**
+     * Copyright on footer
+     */
+    "copyright" => "RESU © 2019 Project SDI - By Eggie Dear Asmara - Universitas Muhammadiyah Sidoarjo"
 ];
