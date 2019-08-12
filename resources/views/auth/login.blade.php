@@ -95,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-center text-white small mt-5">RESU © 2019 Project SDI - By Eggie Dear Asmara - Universitas Muhammadiyah Sidoarjo</p>
+                <p class="text-center text-white small mt-5">{{ config('resu.copyright') }}</p>
             </div>
         </div>
     </div>

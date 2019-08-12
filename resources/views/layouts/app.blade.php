@@ -127,11 +127,7 @@
 			<div class="container">
 				<nav>
 					<p class="copyright text-center">
-						©
-						<script>
-							document.write(new Date().getFullYear())
-						</script>
-						<a href="{{ route('home') }}">{{ config('app.name') }}</a>, made with love for a better world
+						{{ config('resu.copyright') }}
 					</p>
 				</nav>
 			</div>
