@@ -87,7 +87,7 @@
             </div>
             <div class="form-group">
               <label for="kml-document">KML Document</label>
-              <input type="file" name="kml-document" class="form-control">
+              <input type="file" name="kml_document" class="form-control">
               <p>Uploaded KML Document : <a href="{{ Storage::disk('public')->url($workOrder->kml_document) }}">{{ $workOrder->kml_document }}</a></p>
             </div>
             <div class="form-group text-center mt-3">
