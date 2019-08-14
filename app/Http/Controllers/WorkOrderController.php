@@ -139,6 +139,9 @@ class WorkOrderController extends Controller
             $workOrder->fill($request->except('_token'));
             $workOrder->order_date = now();
             $workOrder->created_by = auth()->user()->id;
+            if ($request->file('kml_document')) {
+                $workOrder->kml_document = $request->file('kml_document')->storeAs('documents', date('Ymd', strtotime($workOrder->order_date)) . $workOrder->id . $request->file('kml_document')->extension(), ['disk' => 'public']);
+            }
             $workOrder->save();
 
             // committing db transaction and redirect to home if success
@@ -201,6 +204,9 @@ class WorkOrderController extends Controller
             $workOrder->description = $request->description;
             $workOrder->surveyor = $request->surveyor;
             $workOrder->surveyed_at = now();
+            if ($request->file('kml_document')) {
+                $workOrder->kml_document = $request->file('kml_document')->storeAs('documents', date('Ymd', strtotime($workOrder->order_date)) . $workOrder->id . '.' . $request->file('kml_document')->extension(), ['disk' => 'public']);
+            }
             $workOrder->save();
 
             // committing db transaction and redirect to home

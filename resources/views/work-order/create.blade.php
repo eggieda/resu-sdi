@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col">
         <div class="card">
-            <form action="{{ route('work-order.store') }}" method="post">
+            <form action="{{ route('work-order.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">
                     <h4 class="card-title">New WO Form</h4>
@@ -88,6 +88,10 @@
                             <strong>{{ $errors->first('ref_id') }}</strong>
                         </span>
                         @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="kml-document">KML Document</label>
+                        <input type="file" name="kml_document" class="form-control">
                     </div>
                     <div class="form-group text-center">
                         <button class="btn btn-fill btn-primary mt-3" type="submit">CREATE</button>
