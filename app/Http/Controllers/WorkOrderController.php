@@ -140,7 +140,7 @@ class WorkOrderController extends Controller
             $workOrder->order_date = now();
             $workOrder->created_by = auth()->user()->id;
             if ($request->file('kml_document')) {
-                $workOrder->kml_document = $request->file('kml_document')->storeAs('documents', date('Ymd', strtotime($workOrder->order_date)) . $workOrder->id . $request->file('kml_document')->extension(), ['disk' => 'public']);
+                $workOrder->kml_document = $this->uploadKmlDocument($request->file('kml_document'), $workOrder);
             }
             $workOrder->save();
 
@@ -205,7 +205,7 @@ class WorkOrderController extends Controller
             $workOrder->surveyor = $request->surveyor;
             $workOrder->surveyed_at = now();
             if ($request->file('kml_document')) {
-                $workOrder->kml_document = $request->file('kml_document')->storeAs('documents', date('Ymd', strtotime($workOrder->order_date)) . $workOrder->id . '.' . $request->file('kml_document')->extension(), ['disk' => 'public']);
+                $workOrder->kml_document = $this->uploadKmlDocument($request->file('kml_document'), $workOrder);
             }
             $workOrder->save();
 
@@ -235,5 +235,13 @@ class WorkOrderController extends Controller
         return redirect(route('work-order.index'))->with([
             'status' => 'Work Order successfully deleted'
         ]);
+    }
+
+    /**
+     * Upload KML Document
+     */
+    public function uploadKmlDocument($file, $workOrder)
+    {
+        return $file->storeAs('documents', date('Ymd', strtotime($workOrder->order_date)) . $workOrder->ref_id . '.' . $file->extension(), ['disk' => 'public']);
     }
 }
