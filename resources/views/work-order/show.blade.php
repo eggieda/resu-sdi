@@ -46,6 +46,11 @@
               <input id="surveyor-name" type="text" class="form-control" value="{{ $workOrder->surveyorDetail->name ?? null }}" readonly>
             </div>
             <div class="form-group">
+              <label for="kml-document">KML Document</label>
+              <input type="file" name="kml-document" class="form-control" disabled>
+              <p>Uploaded KML Document : <a href="{{ Storage::disk('public')->url($workOrder->kml_document) }}">{{ $workOrder->kml_document }}</a></p>
+            </div>
+            <div class="form-group">
               <label for="surveyor-name">Created By</label>
               <input id="created_by" type="text" class="form-control" value="{{ $workOrder->createdBy->name ?? null }}" readonly>
             </div>
