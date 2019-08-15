@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\WorkOrder;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -242,6 +243,13 @@ class WorkOrderController extends Controller
      */
     public function uploadKmlDocument($file, $workOrder)
     {
-        return $file->storeAs('documents', date('Ymd', strtotime($workOrder->order_date)) . $workOrder->ref_id . '.' . $file->extension(), ['disk' => 'public']);
+        try {
+            $path = 'documents';
+            $name = date('Ymd', strtotime($workOrder->order_date)) . $workOrder->ref_id . '.' . $file->extension();
+            return $file->storeAs($path, $name, ['disk' => 'public']);
+        } catch (Exception $e) {
+            report($e);
+            return null;
+        }
     }
 }
