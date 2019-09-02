@@ -24,7 +24,9 @@ class WorkOrder extends Model
         'phone_number',
         'sto',
         'source',
-        'ref_id'
+        'ref_id',
+        'surveyor',
+        'surveyor_partner'
     ];
 
     /**

@@ -32,6 +32,7 @@ return [
      * List of Source used ordered by highest priority
      */
     "source" => [
+        "NDE",
         "LME",
         "BGES",
         "STARCLICK",

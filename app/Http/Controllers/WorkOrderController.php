@@ -204,6 +204,7 @@ class WorkOrderController extends Controller
             $workOrder->status = $request->status;
             $workOrder->description = $request->description;
             $workOrder->surveyor = $request->surveyor;
+            $workOrder->surveyor_partner = $request->surveyor_partner;
             $workOrder->surveyed_at = now();
             if ($request->file('kml_document')) {
                 $workOrder->kml_document = $this->uploadKmlDocument($request->file('kml_document'), $workOrder);

@@ -34,7 +34,7 @@
 <body>
 @stack('modals')
 <div class="wrapper">
-	<div class="sidebar" data-image="{{ asset('img/background-1.jpg') }}" data-color="{{ auth()->user()->isAdmin() ? 'black' : 'red' }}">
+	<div class="sidebar" data-image="{{ asset('img/background-1.jpg') }}" data-color="black">
 		<!--
 			Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 

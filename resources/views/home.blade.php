@@ -5,7 +5,7 @@
         <div class="col">
             <div class="jumbotron bg-white">
                 <h3>Welcome, {{ auth()->user()->name }}</h3>
-                <p>Aplikasi ini ditujukan untuk memfasilitasi proses survey pelanggan terkendala internet secara efisien.</p>
+                <p>Aplikasi ini ditujukan untuk memfasilitasi proses survey pelanggan terkendala jaringan secara efisien.</p>
                 <hr class="my-4">
                 <p>Aplikasi ini hanya dapat digunakan oleh tim dari divisi SDI (Survey Data Inventory).</p>
                 <p>

@@ -62,6 +62,7 @@
 								<th>Source</th>
 								<th>Ref ID</th>
 								<th>Surveyor</th>
+								<th>Surveyor Partner</th>
 								<th>Surveyed At</th>
 								<th>Action</th>
 							</tr>
@@ -76,6 +77,7 @@
 									<td>{{ $workOrder->source }}</td>
 									<td>{{ $workOrder->ref_id }}</td>
 									<td>{{ $workOrder->surveyorDetail->name ?? '-- not surveyed yet --' }}</td>
+									<td>{{ $workOrder->surveyor_partner ?? '-- not surveyed yet --' }}</td>
 									<td title="{{ $workOrder->surveyed_at }}">{{ $workOrder->surveyed_at ? $workOrder->surveyed_at->diffForHumans() : '-- not surveyed yet --' }}</td>
 									<td class="text-center">
 										<span>

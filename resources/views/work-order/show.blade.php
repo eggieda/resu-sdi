@@ -46,6 +46,10 @@
               <input id="surveyor-name" type="text" class="form-control" value="{{ $workOrder->surveyorDetail->name ?? null }}" readonly>
             </div>
             <div class="form-group">
+              <label for="surveyor-partner-name">Surveyor Partner</label>
+              <input id="surveyor-partner-name" type="text" class="form-control" value="{{ $workOrder->surveyor_partner }}">
+            </div>
+            <div class="form-group">
               <label for="kml-document">KML Document</label>
               <input type="file" name="kml-document" class="form-control" disabled>
               <p>Uploaded KML Document : <a href="{{ Storage::disk('public')->url($workOrder->kml_document) }}">{{ $workOrder->kml_document }}</a></p>

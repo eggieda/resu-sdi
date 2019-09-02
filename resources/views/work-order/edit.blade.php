@@ -86,6 +86,15 @@
               @endif
             </div>
             <div class="form-group">
+              <label for="surveyor-partner-name">Surveyor Partner</label>
+              <input id="surveyor-partner-name" type="text" class="form-control{{ $errors->has('surveyor_partner') ? ' is-invalid' : '' }}" value="" name="surveyor_partner">
+              @if ($errors->has('surveyor_partner'))
+                <span class="small text-danger" role="alert">
+                  <strong>{{ $errors->first('surveyor_partner') }}</strong>
+                </span>
+              @endif
+            </div>
+            <div class="form-group">
               <label for="kml-document">KML Document</label>
               <input type="file" name="kml_document" class="form-control">
               <p>Uploaded KML Document : <a href="{{ Storage::disk('public')->url($workOrder->kml_document) }}">{{ $workOrder->kml_document }}</a></p>

@@ -89,10 +89,6 @@
                         </span>
                         @endif
                     </div>
-                    <div class="form-group">
-                        <label for="kml-document">KML Document</label>
-                        <input type="file" name="kml_document" class="form-control">
-                    </div>
                     <div class="form-group text-center">
                         <button class="btn btn-fill btn-primary mt-3" type="submit">CREATE</button>
                     </div>
