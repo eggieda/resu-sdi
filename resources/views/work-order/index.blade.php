@@ -76,8 +76,8 @@
 									<td>{{ $workOrder->sto }}</td>
 									<td>{{ $workOrder->source }}</td>
 									<td>{{ $workOrder->ref_id }}</td>
-									<td>{{ $workOrder->surveyorDetail->name ?? '-- not surveyed yet --' }}</td>
-									<td>{{ $workOrder->surveyor_partner ?? '-- not surveyed yet --' }}</td>
+									<td>{{ auth()->user()->isTechnisian() ? auth()->user()->name : ($workOrder->surveyorDetail->name ?? '-- not surveyed yet --') }}</td>
+									<td>{{ $workOrder->surveyorPartner->name ?? '-- not surveyed yet --' }}</td>
 									<td title="{{ $workOrder->surveyed_at }}">{{ $workOrder->surveyed_at ? $workOrder->surveyed_at->diffForHumans() : '-- not surveyed yet --' }}</td>
 									<td class="text-center">
 										<span>

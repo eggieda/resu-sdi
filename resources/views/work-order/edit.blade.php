@@ -87,7 +87,12 @@
             </div>
             <div class="form-group">
               <label for="surveyor-partner-name">Surveyor Partner</label>
-              <input id="surveyor-partner-name" type="text" class="form-control{{ $errors->has('surveyor_partner') ? ' is-invalid' : '' }}" value="" name="surveyor_partner">
+              <select id="surveyor-partner-name" class="form-control{{ $errors->has('surveyor_partner') ? ' is-invalid' : '' }}" name="surveyor_partner">
+                <option value="">Pilih Partner</option>
+                @foreach ($users as $item)
+                  <option value="{{ $item->id }}">{{ $item->name }}</option>
+                @endforeach
+              </select>
               @if ($errors->has('surveyor_partner'))
                 <span class="small text-danger" role="alert">
                   <strong>{{ $errors->first('surveyor_partner') }}</strong>

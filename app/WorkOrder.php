@@ -51,4 +51,12 @@ class WorkOrder extends Model
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function surveyorPartner()
+    {
+        return $this->belongsTo(User::class, 'surveyor_partner', 'id');
+    }
 }

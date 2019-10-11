@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\WorkOrder;
 use Exception;
 use Illuminate\Http\Request;
@@ -153,8 +154,9 @@ class WorkOrderController extends Controller
         } catch (\Exception $e) {
             // rollback db transaction and redirect back with error message
             DB::rollBack();
+            report($e);
             return redirect()->back()->with([
-                'error' => $e->getMessage()
+                'error' => 'Terjadi kesalahan saat menyimpan data ke database'
             ]);
         }
     }
@@ -179,7 +181,8 @@ class WorkOrderController extends Controller
     public function edit($id)
     {
         return view('work-order.edit')->with([
-            'workOrder' => WorkOrder::findOrFail($id)
+            'workOrder' => WorkOrder::findOrFail($id),
+            'users' => User::where('role', 'technician')->get(),
         ]);
     }
 
@@ -219,8 +222,9 @@ class WorkOrderController extends Controller
         } catch (\Exception $e) {
             // rolling back db transaction and redirect back with error message
             DB::rollBack();
+            report($e);
             return redirect()->back()->with([
-                'error' => $e->getMessage()
+                'error' => 'Terjadi kesalahan saat melakukan update database'
             ]);
         }
     }

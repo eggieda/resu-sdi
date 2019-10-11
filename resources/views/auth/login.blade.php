@@ -62,10 +62,10 @@
                             @csrf
                             <div class="form-group">
                                 <div class="form-label-group">
-                                    <input type="email" id="inputEmail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email address" required="required" autofocus="autofocus" name="email" value="{{ old('email') }}">
-                                    @if($errors->has('email'))
+                                    <input type="text" id="inputEmail" class="form-control{{ $errors->has('uid') || $errors->has('email') ? ' is-invalid' : '' }}" placeholder="NIK / Email address" required="required" autofocus="autofocus" name="login" value="{{ old('login') }}">
+                                    @if($errors->has('uid') ?: $errors->has('email'))
                                         <span class="has-error">
-                                            <strong>{{ $errors->first('email') }}</strong>
+                                            <strong>{{ $errors->first('uid') ?: $errors->first('email') }}</strong>
                                         </span>
                                     @endif
                                 </div>
