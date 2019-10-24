@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc70338c-e651-485a-a322-05e04d19b3dd" name="Default Changelist" comment="" />
+    <list default="true" id="fc70338c-e651-485a-a322-05e04d19b3dd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +47,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpServers">
     <servers />
@@ -158,7 +163,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Blade" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -213,6 +218,14 @@
       <workItem from="1563030157913" duration="6101000" />
       <workItem from="1563073629061" duration="3743000" />
       <workItem from="1565531324133" duration="651000" />
+      <workItem from="1571099954978" duration="100000" />
+      <workItem from="1571660762652" duration="859000" />
+      <workItem from="1571662632886" duration="48000" />
+      <workItem from="1571662732583" duration="615000" />
+      <workItem from="1571663794078" duration="584000" />
+      <workItem from="1571664413828" duration="428000" />
+      <workItem from="1571664900487" duration="106000" />
+      <workItem from="1571665039349" duration="1080000" />
     </task>
     <task id="LOCAL-00001" summary="update sto list">
       <created>1565531888824</created>
@@ -232,7 +245,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -241,20 +256,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update sto list" />
     <option name="LAST_COMMIT_MESSAGE" value="update sto list" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="Copyright.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
