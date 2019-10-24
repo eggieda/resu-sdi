@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col">
         <div class="card">
-            <form action="{{ route('work-order.store') }}" method="post">
+            <form action="{{ route('work-order.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">
                     <h4 class="card-title">New WO Form</h4>

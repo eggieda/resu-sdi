@@ -5,20 +5,34 @@ return [
      * List of STO used
      */
     "sto" => [
-        "KRN",
-        "TUN",
-        "SDA",
-        "PDA",
+        "BEJ",
+        "DLA",
         "GDA",
-        "SPJ",
-        "SDN",
+        "GEM",
+        "JOM",
+        "KRN",
         "MJS",
+        "MOJ",
+        "MR1",
+        "MR2",
+        "NRI",
+        "NRJ",
+        "PCT",
+        "PDA",
+        "PGE",
+        "POS",
+        "PWS",
+        "SDA",
+        "SDN",
+        "SPJ",
+        "TUN",
     ],
 
     /**
      * List of Source used ordered by highest priority
      */
     "source" => [
+        "NDE",
         "LME",
         "BGES",
         "STARCLICK",

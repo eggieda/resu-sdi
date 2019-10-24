@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col">
       <div class="card">
-        <form action="{{ route('work-order.update', $workOrder->id) }}" method="post">
+        <form action="{{ route('work-order.update', $workOrder->id) }}" method="post" enctype="multipart/form-data">
           @csrf
           @method('put')
           <div class="card-header">
@@ -84,6 +84,25 @@
                   <strong>{{ $errors->first('surveyor') }}</strong>
                 </span>
               @endif
+            </div>
+            <div class="form-group">
+              <label for="surveyor-partner-name">Surveyor Partner</label>
+              <select id="surveyor-partner-name" class="form-control{{ $errors->has('surveyor_partner') ? ' is-invalid' : '' }}" name="surveyor_partner">
+                <option value="">Pilih Partner</option>
+                @foreach ($users as $item)
+                  <option value="{{ $item->id }}">{{ $item->name }}</option>
+                @endforeach
+              </select>
+              @if ($errors->has('surveyor_partner'))
+                <span class="small text-danger" role="alert">
+                  <strong>{{ $errors->first('surveyor_partner') }}</strong>
+                </span>
+              @endif
+            </div>
+            <div class="form-group">
+              <label for="kml-document">KML Document</label>
+              <input type="file" name="kml_document" class="form-control">
+              <p>Uploaded KML Document : <a href="{{ Storage::disk('public')->url($workOrder->kml_document) }}">{{ $workOrder->kml_document }}</a></p>
             </div>
             <div class="form-group text-center mt-3">
               <button class="btn btn-primary btn-fill" type="submit">UPDATE</button>

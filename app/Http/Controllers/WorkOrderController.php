@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\WorkOrder;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -139,6 +141,9 @@ class WorkOrderController extends Controller
             $workOrder->fill($request->except('_token'));
             $workOrder->order_date = now();
             $workOrder->created_by = auth()->user()->id;
+            if ($request->file('kml_document')) {
+                $workOrder->kml_document = $this->uploadKmlDocument($request->file('kml_document'), $workOrder);
+            }
             $workOrder->save();
 
             // committing db transaction and redirect to home if success
@@ -149,8 +154,9 @@ class WorkOrderController extends Controller
         } catch (\Exception $e) {
             // rollback db transaction and redirect back with error message
             DB::rollBack();
+            report($e);
             return redirect()->back()->with([
-                'error' => $e->getMessage()
+                'error' => 'Terjadi kesalahan saat menyimpan data ke database'
             ]);
         }
     }
@@ -175,7 +181,8 @@ class WorkOrderController extends Controller
     public function edit($id)
     {
         return view('work-order.edit')->with([
-            'workOrder' => WorkOrder::findOrFail($id)
+            'workOrder' => WorkOrder::findOrFail($id),
+            'users' => User::where('role', 'technician')->get(),
         ]);
     }
 
@@ -200,7 +207,11 @@ class WorkOrderController extends Controller
             $workOrder->status = $request->status;
             $workOrder->description = $request->description;
             $workOrder->surveyor = $request->surveyor;
+            $workOrder->surveyor_partner = $request->surveyor_partner;
             $workOrder->surveyed_at = now();
+            if ($request->file('kml_document')) {
+                $workOrder->kml_document = $this->uploadKmlDocument($request->file('kml_document'), $workOrder);
+            }
             $workOrder->save();
 
             // committing db transaction and redirect to home
@@ -211,8 +222,9 @@ class WorkOrderController extends Controller
         } catch (\Exception $e) {
             // rolling back db transaction and redirect back with error message
             DB::rollBack();
+            report($e);
             return redirect()->back()->with([
-                'error' => $e->getMessage()
+                'error' => 'Terjadi kesalahan saat melakukan update database'
             ]);
         }
     }
@@ -229,5 +241,20 @@ class WorkOrderController extends Controller
         return redirect(route('work-order.index'))->with([
             'status' => 'Work Order successfully deleted'
         ]);
+    }
+
+    /**
+     * Upload KML Document
+     */
+    public function uploadKmlDocument($file, $workOrder)
+    {
+        try {
+            $path = 'documents';
+            $name = date('Ymd', strtotime($workOrder->order_date)) . $workOrder->ref_id . '.' . $file->extension();
+            return $file->storeAs($path, $name, ['disk' => 'public']);
+        } catch (Exception $e) {
+            report($e);
+            return null;
+        }
     }
 }

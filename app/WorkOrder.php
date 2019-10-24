@@ -24,7 +24,9 @@ class WorkOrder extends Model
         'phone_number',
         'sto',
         'source',
-        'ref_id'
+        'ref_id',
+        'surveyor',
+        'surveyor_partner'
     ];
 
     /**
@@ -48,5 +50,13 @@ class WorkOrder extends Model
     public function createdBy()
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function surveyorPartner()
+    {
+        return $this->belongsTo(User::class, 'surveyor_partner', 'id');
     }
 }
