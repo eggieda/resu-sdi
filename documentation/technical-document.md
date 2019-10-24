@@ -382,6 +382,7 @@ Berikut adalah file-file yang berhubungan dengan fitur *Review Workorder*.
 
 + `/app/Http/Controllers/WorkOrderController.php` method `index` 
   + `/app/WorkOrder.php`
+  + `/config/resu.php`
 + `/resources/views/work-order/index.blade.php` view yang disajikan berbentuk tabel yang berisi data WO
 
 Berikut adalah alur dari flow *Review Workorder*
@@ -389,9 +390,10 @@ Berikut adalah alur dari flow *Review Workorder*
 2. Pada file `/routes/web.php`, link tersebut akan diarahkan ke controller `/app/Http/Controllers/WorkOrderController.php` pada method `index()`
 3. Controller akan melakukan perkejaan sebagai berikut.
    1. Get data Workorder yang belum dikerjakan dari model `/app/WorkOrder.php`
-   2. Jika user adalah teknisi, get data Workorder berdasarkan lokasi kerja teknisi
-   3. Filter data workrder berdasarkan filter dari halaman
-   4. Menyajikan view data WO
+   2. Mengurutkan data Workorder berdasarkan skala prioritas yang telah di set pada `/config/resu.php`
+   3. Jika user adalah teknisi, get data Workorder berdasarkan lokasi kerja teknisi
+   4. Filter data workrder berdasarkan filter dari halaman
+   5. Menyajikan view data WO
 4. View menyajikan data WO dalam bentuk tabel
 5. View menyajikan tombol aksi berupa `show` `edit` `delete`
    1. Fitur `show` digunakan untuk melihat detail dari Workorder. Berikut adalah alur dari fitur `show`.
