@@ -421,3 +421,36 @@ Berikut adalah alur dari flow *Review Workorder*
 Merupakan fitur khusus untuk Admin yang akan menyajikan data Workorder yang sudah dikerjakan.
 
 Secara keseluruhan fitur ini sama dengan fitur *Reveiw Workorder* hanya saja link yang diarahkan ke `/work-orde/closed` dan controller yang digunakan adalah `/app/Http/Controllers/WorkOrderController.php` pada method `closed()`.
+
+## Git Workflow
+
+Pengembangan aplikasi ini menggunakan Git Version Control untuk menyimpan source code ke Git Repository dari Github. Git ini sendiri sangat diperlukan dalam melakukan pengembangan karena kita dapat melihat rekam jejak perubahan yang ada pada aplikasi mulai dari tahap awal sampai akhir.
+
+### Git Flow
+
+Flow yang digunakan pada repository aplikasi ini adalah menggunakan standar development yang berisikan 2 `branch` yaitu `master` dan `develop`. Branch master digunakan untuk aplikasi yang sudah siap digunakan oleh real user. Branch develop digunakan untuk tahap development berlangsung.
+
+### Push
+
+Setelah mengerjakan fitur, sangat disarankan untuk segera melakukan `push` dengan cara sebagai berikut.
+
+1. Buka GIT Bash dan arahkan pada folder project
+2. Jalankan command : `git add .`
+3. Jalankan command : `git commit -m "Pesan untuk mengindikasikan perubahan yang terjadi"`
+4. Jalankan command : `git push origin develop`
+
+### Pull
+
+Pull digunakan untuk mengambil update terbaru dari repository. Sangat disarankan untuk melakukan pull sebelum melakukan push. Berikut adalah cara melakukan pull.
+
+1. Buka GIT Bash dan arahkan pada folder project
+2. Jalankan command : `git pull origin develop`
+
+### Merge Master
+
+Merge digunakan untuk menggabungkan 2 branch yang berbeda. Sangat disarankan melakukan merge ke master jika fitur yang dikerjakan di develop sudah siap digunakan oleh real user.
+
+1. Buka GIT Bash dan arahkan pada folder project
+2. Jalankan command : `git checkout master`
+3. Jalankan command : `git merge develop`
+4. Jalankan command : `git push origin master`
